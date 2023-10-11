@@ -21,6 +21,23 @@ class LoginController: UIViewController {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
         
+        let defaults = UserDefaults.standard
+                defaults.set(25, forKey: "Age")
+                defaults.set(true, forKey: "UseTouchID")
+                defaults.set(CGFloat.pi, forKey: "Pi")
+
+                let array = ["Hello", "World"]
+                defaults.set(array, forKey: "SavedArray")
+
+                let test = defaults.object(forKey:"SavedArray") as? [String] ?? [String]()
+                print(test)
+
+                let user =  ["name": "toto","password": "toto"]
+                defaults.set(user, forKey: "user")
+
+                let value = defaults.object(forKey:"user") as? [String: String] ?? [String: String]()
+                print(value)
+        
     }
 
 
