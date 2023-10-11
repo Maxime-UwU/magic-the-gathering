@@ -25,13 +25,11 @@ class LoginController: UIViewController {
     
     @IBAction func buttonLogin(_ sender: UIButton) {
         allUsers.forEach { user in
-            print(user["names"]!)
-            print(usernameField)
             if user["name"] == usernameField.text{
-                print("same username ")
                 if user["password"] == passwordField.text{
-                    print("log in")
-                    
+                    if let vc = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(identifier: "wiki") as? WikiViewController{
+                        self.navigationController?.pushViewController(vc, animated: true)
+                    }
                 }
                 
             }
