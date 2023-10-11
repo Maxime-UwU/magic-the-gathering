@@ -1,10 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="22154" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="89w-Fp-gs2">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="22154" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="HUu-Ir-PQw">
     <device id="retina6_12" orientation="portrait" appearance="light"/>
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="22130"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
+        <capability name="collection view cell content view" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
@@ -70,6 +71,9 @@
                                             <color key="baseForegroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                             <color key="baseBackgroundColor" red="0.15294116739999999" green="0.60784316059999999" blue="0.81960785390000002" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                         </buttonConfiguration>
+                                        <connections>
+                                            <action selector="buttonLogin:" destination="BYZ-38-t0r" eventType="touchUpInside" id="FmZ-iZ-vNv"/>
+                                        </connections>
                                     </button>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="If you do not have an account you can" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Vn8-eQ-pmB">
                                         <rect key="frame" x="19" y="320" width="297" height="17"/>
@@ -130,6 +134,10 @@
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="POt-jI-Xq9"/>
+                    <connections>
+                        <outlet property="passwordField" destination="2dB-1w-xVS" id="1U8-UG-I9N"/>
+                        <outlet property="usernameField" destination="EKo-fw-LT8" id="DF9-Ca-mbm"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
@@ -240,30 +248,55 @@
             </objects>
             <point key="canvasLocation" x="2684.7328244274809" y="-2.1126760563380285"/>
         </scene>
-        <!--Item-->
+        <!--Wiki-->
         <scene sceneID="Z59-a7-qM4">
             <objects>
                 <viewController id="4w2-jM-iF8" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="xxs-7H-hU8">
-                        <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
+                        <rect key="frame" x="0.0" y="0.0" width="393" height="769"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="This is the second page" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="XyN-M7-D8K">
-                                <rect key="frame" x="92" y="167" width="208" height="24"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="20"/>
-                                <nil key="textColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
+                            <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="30n-RT-9lT">
+                                <rect key="frame" x="0.0" y="129" width="393" height="610"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                <collectionViewFlowLayout key="collectionViewLayout" automaticEstimatedItemSize="YES" minimumLineSpacing="10" minimumInteritemSpacing="10" id="WM4-Ix-RUI">
+                                    <size key="itemSize" width="128" height="128"/>
+                                    <size key="headerReferenceSize" width="0.0" height="0.0"/>
+                                    <size key="footerReferenceSize" width="0.0" height="0.0"/>
+                                    <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
+                                </collectionViewFlowLayout>
+                                <cells>
+                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" id="50O-DQ-JvW">
+                                        <rect key="frame" x="0.0" y="0.0" width="127.99999999999997" height="128"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <collectionViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" id="pMV-LO-Dbk">
+                                            <rect key="frame" x="0.0" y="0.0" width="127.99999999999997" height="128"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                        </collectionViewCellContentView>
+                                    </collectionViewCell>
+                                </cells>
+                            </collectionView>
+                            <searchBar contentMode="redraw" translatesAutoresizingMaskIntoConstraints="NO" id="Isg-HJ-xjO">
+                                <rect key="frame" x="21" y="66" width="351" height="56"/>
+                                <textInputTraits key="textInputTraits"/>
+                                <connections>
+                                    <outlet property="delegate" destination="4w2-jM-iF8" id="06V-zS-reh"/>
+                                </connections>
+                            </searchBar>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="Pf8-cP-pKb"/>
-                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <color key="backgroundColor" red="0.1803921568627451" green="0.082352941176470587" blue="0.16470588235294117" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
-                            <constraint firstItem="XyN-M7-D8K" firstAttribute="top" secondItem="Pf8-cP-pKb" secondAttribute="top" constant="108" id="ItY-Hh-2GT"/>
-                            <constraint firstItem="Pf8-cP-pKb" firstAttribute="trailing" secondItem="XyN-M7-D8K" secondAttribute="trailing" constant="93" id="McS-Hz-fHo"/>
-                            <constraint firstItem="XyN-M7-D8K" firstAttribute="leading" secondItem="Pf8-cP-pKb" secondAttribute="leading" constant="92" id="hd1-Tf-YKu"/>
+                            <constraint firstItem="Pf8-cP-pKb" firstAttribute="bottom" secondItem="30n-RT-9lT" secondAttribute="bottom" constant="30" id="2TM-Yk-JAG"/>
+                            <constraint firstItem="Pf8-cP-pKb" firstAttribute="trailing" secondItem="Isg-HJ-xjO" secondAttribute="trailing" constant="21" id="2hz-Y2-l5P"/>
+                            <constraint firstItem="Isg-HJ-xjO" firstAttribute="leading" secondItem="Pf8-cP-pKb" secondAttribute="leading" constant="21" id="5Jx-Ef-78s"/>
+                            <constraint firstItem="Isg-HJ-xjO" firstAttribute="top" secondItem="Pf8-cP-pKb" secondAttribute="top" constant="7" id="QLN-O7-nEH"/>
+                            <constraint firstItem="Pf8-cP-pKb" firstAttribute="trailing" secondItem="30n-RT-9lT" secondAttribute="trailing" id="TM5-AY-oE7"/>
+                            <constraint firstItem="30n-RT-9lT" firstAttribute="leading" secondItem="Pf8-cP-pKb" secondAttribute="leading" id="Y87-bM-STc"/>
+                            <constraint firstItem="30n-RT-9lT" firstAttribute="top" secondItem="Pf8-cP-pKb" secondAttribute="top" constant="70" id="uT7-EV-oCO"/>
                         </constraints>
                     </view>
-                    <tabBarItem key="tabBarItem" title="Item" id="euh-D1-tmp"/>
+                    <tabBarItem key="tabBarItem" title="Wiki" image="mail.and.text.magnifyingglass" catalog="system" id="euh-D1-tmp"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="aAH-0J-dY7" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
@@ -293,10 +326,13 @@
             <objects>
                 <tabBarController automaticallyAdjustsScrollViewInsets="NO" id="HUu-Ir-PQw" sceneMemberID="viewController">
                     <toolbarItems/>
-                    <tabBar key="tabBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="JZW-lo-ZAE">
+                    <tabBar key="tabBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" translucent="NO" id="JZW-lo-ZAE">
                         <rect key="frame" x="0.0" y="0.0" width="1000" height="1000"/>
                         <autoresizingMask key="autoresizingMask"/>
-                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <color key="backgroundColor" red="0.18039215689999999" green="0.08235294118" blue="0.1647058824" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <color key="tintColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <color key="barTintColor" red="0.18039215689999999" green="0.08235294118" blue="0.1647058824" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <color key="selectedImageTintColor" red="0.94901960784313721" green="0.74509803921568629" blue="0.16470588235294117" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                     </tabBar>
                     <connections>
                         <segue destination="4w2-jM-iF8" kind="relationship" relationship="viewControllers" id="zcW-53-bB4"/>
@@ -310,6 +346,7 @@
     <resources>
         <image name="Magic Gathering Logo" width="3840" height="2160"/>
         <image name="Paysage Magic Gathering" width="996" height="728"/>
+        <image name="mail.and.text.magnifyingglass" catalog="system" width="128" height="109"/>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>
