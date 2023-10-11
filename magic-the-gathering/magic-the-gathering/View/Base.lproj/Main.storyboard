@@ -276,8 +276,10 @@
                                     </collectionViewCell>
                                 </cells>
                             </collectionView>
-                            <searchBar contentMode="redraw" translatesAutoresizingMaskIntoConstraints="NO" id="Isg-HJ-xjO">
+                            <searchBar contentMode="redraw" restorationIdentifier="searchField" text="" placeholder="Rechercher une carte" translatesAutoresizingMaskIntoConstraints="NO" id="Isg-HJ-xjO">
                                 <rect key="frame" x="21" y="66" width="351" height="56"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <color key="barTintColor" red="0.2666666667" green="0.10980392160000001" blue="0.24313725489999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <textInputTraits key="textInputTraits"/>
                                 <connections>
                                     <outlet property="delegate" destination="4w2-jM-iF8" id="06V-zS-reh"/>
