@@ -14,6 +14,7 @@ class LoginController: UIViewController {
             // Masquer la barre d'onglets lorsque SecondViewController est poussé
             vc.hidesBottomBarWhenPushed = true
             self.navigationController?.pushViewController(vc, animated: true)
+            self.navigationController?.navigationBar.tintColor = UIColor(red: 63/255.0, green: 63/255.0, blue: 63/255.0, alpha: 1)
         }
     }
     
@@ -22,7 +23,5 @@ class LoginController: UIViewController {
         // Do any additional setup after loading the view.
         
     }
-
-
 }
 
