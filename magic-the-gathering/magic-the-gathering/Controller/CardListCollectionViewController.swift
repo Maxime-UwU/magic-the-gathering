@@ -1,19 +1,23 @@
 //
-//  WikiViewController.swift
+//  CardListCollectionViewController.swift
 //  magic-the-gathering
 //
-//  Created by coding on 11/10/2023.
+//  Created by Vahé Krikorian on 11/10/2023.
 //
 
 import UIKit
 
-class WikiViewController: UIViewController {
+import WebKit
+
+private let reuseIdentifier = "Cell"
+
+class CardListCollectionViewController: UICollectionViewController {
     
     @IBOutlet weak var searchBar: UISearchBar!
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+
         searchBar.layer.cornerRadius = 10 // Ajustez le rayon en fonction de vos préférences
         searchBar.layer.masksToBounds = true
         
@@ -32,66 +36,11 @@ class WikiViewController: UIViewController {
                 searchIcon.image = UIImage(named: "iconRecherche")
             }
         }
-    }
-    
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
-    }
-    */
-
-}
-
-private let reuseIdentifier = "Cell"
-
-class CardListCollectionViewController: UICollectionViewController {
-    
-    var cards: [Card] = []
-    
-    override func viewDidLoad() {
-        super.viewDidLoad()
-
-       
-//        let config = URLSessionConfiguration.default
-//               let session = URLSession(configuration: config)
-//               
-//               let url = URL(string: "http://api.deezer.com/search?q=a")!
-//               
-//               let task = session.dataTask(with: url) { (data, response, error) in
-//                   if error != nil {
-//                       print(error!.localizedDescription)
-//                   } else {
-//                       if let json = try? JSONSerialization.jsonObject(with: data!, options: .mutableContainers) {
-//                           if let data = json as? [String: AnyObject] {
-//                               
-//                               if let items = data["data"] as? [[String: AnyObject]] {
-//                                   for item in items {
-//                                       //print(item["link"]!)
-//                                       //self.browsers.append(item["link"]! as! String)
-//                                       if let card = Card(json: item) {
-//                                         self.cards.append(card)
-//                                       }
-//                                       
-//                                   }
-//                               }
-//                           }
-//                       }
-//                   }
-//                   
-//                   DispatchQueue.main.async {
-//                       self.collectionView.reloadData()
-//                   }
         
         self.collectionView!.register(UICollectionViewCell.self, forCellWithReuseIdentifier: reuseIdentifier)
 
-    
+        // Do any additional setup after loading the view.
     }
-//        task.resume()
 
     /*
     // MARK: - Navigation
@@ -154,4 +103,5 @@ class CardListCollectionViewController: UICollectionViewController {
     
     }
     */
+
 }
