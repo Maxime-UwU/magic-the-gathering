@@ -7,19 +7,21 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		079521572AD6ACF6008141A7 /* RegisterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 079521562AD6ACF6008141A7 /* RegisterViewController.swift */; };
 		50B2C9302AD5987F00C8F36B /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50B2C92F2AD5987F00C8F36B /* AppDelegate.swift */; };
 		50B2C9322AD5987F00C8F36B /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50B2C9312AD5987F00C8F36B /* SceneDelegate.swift */; };
-		50B2C9342AD5987F00C8F36B /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50B2C9332AD5987F00C8F36B /* ViewController.swift */; };
+		50B2C9342AD5987F00C8F36B /* LoginController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50B2C9332AD5987F00C8F36B /* LoginController.swift */; };
 		50B2C9372AD5987F00C8F36B /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 50B2C9352AD5987F00C8F36B /* Main.storyboard */; };
 		50B2C9392AD5988000C8F36B /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 50B2C9382AD5988000C8F36B /* Assets.xcassets */; };
 		50B2C93C2AD5988000C8F36B /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 50B2C93A2AD5988000C8F36B /* LaunchScreen.storyboard */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		079521562AD6ACF6008141A7 /* RegisterViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterViewController.swift; sourceTree = "<group>"; };
 		50B2C92C2AD5987F00C8F36B /* magic-the-gathering.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "magic-the-gathering.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		50B2C92F2AD5987F00C8F36B /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		50B2C9312AD5987F00C8F36B /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		50B2C9332AD5987F00C8F36B /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		50B2C9332AD5987F00C8F36B /* LoginController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginController.swift; sourceTree = "<group>"; };
 		50B2C9362AD5987F00C8F36B /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		50B2C9382AD5988000C8F36B /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		50B2C93B2AD5988000C8F36B /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -37,6 +39,31 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		079521532AD6988E008141A7 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		079521542AD698C9008141A7 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				50B2C93A2AD5988000C8F36B /* LaunchScreen.storyboard */,
+				50B2C9352AD5987F00C8F36B /* Main.storyboard */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		079521552AD698FB008141A7 /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				50B2C9332AD5987F00C8F36B /* LoginController.swift */,
+				079521562AD6ACF6008141A7 /* RegisterViewController.swift */,
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
 		50B2C9232AD5987F00C8F36B = {
 			isa = PBXGroup;
 			children = (
@@ -58,10 +85,10 @@
 			children = (
 				50B2C92F2AD5987F00C8F36B /* AppDelegate.swift */,
 				50B2C9312AD5987F00C8F36B /* SceneDelegate.swift */,
-				50B2C9332AD5987F00C8F36B /* ViewController.swift */,
-				50B2C9352AD5987F00C8F36B /* Main.storyboard */,
+				079521552AD698FB008141A7 /* Controller */,
+				079521542AD698C9008141A7 /* View */,
+				079521532AD6988E008141A7 /* Model */,
 				50B2C9382AD5988000C8F36B /* Assets.xcassets */,
-				50B2C93A2AD5988000C8F36B /* LaunchScreen.storyboard */,
 				50B2C93D2AD5988000C8F36B /* Info.plist */,
 			);
 			path = "magic-the-gathering";
@@ -138,9 +165,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				50B2C9342AD5987F00C8F36B /* ViewController.swift in Sources */,
+				50B2C9342AD5987F00C8F36B /* LoginController.swift in Sources */,
 				50B2C9302AD5987F00C8F36B /* AppDelegate.swift in Sources */,
 				50B2C9322AD5987F00C8F36B /* SceneDelegate.swift in Sources */,
+				079521572AD6ACF6008141A7 /* RegisterViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
