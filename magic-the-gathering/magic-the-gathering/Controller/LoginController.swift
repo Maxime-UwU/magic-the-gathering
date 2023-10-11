@@ -18,38 +18,48 @@ class LoginController: UIViewController {
         }
     }
     
-    var allUsers: [[String: AnyObject]] = []
+    var allUsers: [[String: String]] = []
     @IBOutlet weak var usernameField: UITextField!
     
     @IBOutlet weak var passwordField: UITextField!
     
     @IBAction func buttonLogin(_ sender: UIButton) {
-//        for user in allUsers {
-//            
-//        }
+        allUsers.forEach { user in
+            print(user["names"]!)
+            print(usernameField)
+            if user["name"] == usernameField.text{
+                print("same username ")
+                if user["password"] == passwordField.text{
+                    print("log in")
+                    
+                }
+                
+            }
+        }
+
     }
     
     
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
-        
-        if let path = Bundle.main.path(forResource: "data", ofType: "json") {
-            do {
-                let data = try Data(contentsOf: URL(fileURLWithPath: path), options: .mappedIfSafe)
-                let jsonResult = try JSONSerialization.jsonObject(with: data, options: .mutableLeaves)
-                if let jsonResult = jsonResult as? Dictionary<String, AnyObject>, let users = jsonResult["users"] as? [[String: AnyObject]] {
-                    allUsers = users
-                    for user in users {
-                        print(user["username"]!)
-                        print(user["password"]!)
-                        print(allUsers)
-                    }
-                }
-            } catch {
-                // handle error
-            }
-        }
+        let defaults = UserDefaults.standard
+                        defaults.set(25, forKey: "Age")
+                        defaults.set(true, forKey: "UseTouchID")
+                        defaults.set(CGFloat.pi, forKey: "Pi")
+
+                        let array = ["Hello", "World"]
+                        defaults.set(array, forKey: "SavedArray")
+
+                        let test = defaults.object(forKey:"SavedArray") as? [String] ?? [String]()
+                        print(test)
+
+                        let users =  [["name": "toto","password": "toto"],["name": "root","password": "root"]]
+                        defaults.set(users, forKey: "users")
+
+                        let value = defaults.object(forKey:"users") as? [[String: String]] ?? [[String: String]]()
+                        print(value)
+                        allUsers = value
     }
 }
 
