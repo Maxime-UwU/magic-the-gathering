@@ -1,0 +1,13 @@
+{
+    "users": [
+        {
+            "username": "toto",
+            "password": "toto"
+        },
+        {
+            "username": "utilisateur2",
+            "password": "motdepasse2"
+        }
+    ]
+}
+
