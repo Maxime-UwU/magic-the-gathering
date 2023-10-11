@@ -47,51 +47,60 @@ class WikiViewController: UIViewController {
 
 }
 
+class CardCell: UICollectionViewCell {
+    @IBOutlet weak var nameLabel: UILabel!
+}
+    
+
+
 private let reuseIdentifier = "Cell"
 
 class CardListCollectionViewController: UICollectionViewController {
     
     var cards: [Card] = []
     
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-
-       
-//        let config = URLSessionConfiguration.default
-//               let session = URLSession(configuration: config)
-//               
-//               let url = URL(string: "http://api.deezer.com/search?q=a")!
-//               
-//               let task = session.dataTask(with: url) { (data, response, error) in
-//                   if error != nil {
-//                       print(error!.localizedDescription)
-//                   } else {
-//                       if let json = try? JSONSerialization.jsonObject(with: data!, options: .mutableContainers) {
-//                           if let data = json as? [String: AnyObject] {
-//                               
-//                               if let items = data["data"] as? [[String: AnyObject]] {
-//                                   for item in items {
-//                                       //print(item["link"]!)
-//                                       //self.browsers.append(item["link"]! as! String)
-//                                       if let card = Card(json: item) {
-//                                         self.cards.append(card)
-//                                       }
-//                                       
-//                                   }
-//                               }
-//                           }
-//                       }
-//                   }
-//                   
-//                   DispatchQueue.main.async {
-//                       self.collectionView.reloadData()
-//                   }
         
-        self.collectionView!.register(UICollectionViewCell.self, forCellWithReuseIdentifier: reuseIdentifier)
-
-    
+        
+        let config = URLSessionConfiguration.default
+        let session = URLSession(configuration: config)
+        
+        let url = URL(string: "http://api.magicthegathering.io/v1/cards?name=a")!
+        
+        let task = session.dataTask(with: url) { (data, response, error) in
+            if error != nil {
+                print(error!.localizedDescription)
+            } else {
+                if let json = try? JSONSerialization.jsonObject(with: data!, options: .mutableContainers) {
+                    if let data = json as? [String: AnyObject] {
+                        
+                        if let items = data["data"] as? [[String: AnyObject]] {
+                            for item in items {
+                                //print(item["link"]!)
+                                //self.browsers.append(item["link"]! as! String)
+                                if let card = Card(json: item) {
+                                    self.cards.append(card)
+                                }
+                                
+                            }
+                        }
+                    }
+                }
+            }
+            
+            DispatchQueue.main.async {
+                self.collectionView.reloadData()
+            }
+            
+            self.collectionView!.register(UICollectionViewCell.self, forCellWithReuseIdentifier: reuseIdentifier)
+            
+            
+        }
+        task.resume()
+        
     }
-//        task.resume()
 
     /*
     // MARK: - Navigation
@@ -107,23 +116,28 @@ class CardListCollectionViewController: UICollectionViewController {
 
     override func numberOfSections(in collectionView: UICollectionView) -> Int {
         // #warning Incomplete implementation, return the number of sections
-        return 0
+        return 1
     }
 
 
     override func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         // #warning Incomplete implementation, return the number of items
-        return 0
+        return cards.count
     }
 
     override func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: reuseIdentifier, for: indexPath)
-    
-        // Configure the cell
-    
+        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: reuseIdentifier, for: indexPath) as! CardCell
+        
+        
+        
+        let card = cards[indexPath.row]
+        cell.nameLabel.text = card.name
+        
+        print(card)
+        // Configurez d'autres éléments de l'interface utilisateur de la cellule si nécessaire
+        
         return cell
     }
-
     // MARK: UICollectionViewDelegate
 
     /*
