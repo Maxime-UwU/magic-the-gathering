@@ -43,6 +43,35 @@ class LoginController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+
+        let config = URLSessionConfiguration.default
+        let session = URLSession(configuration: config)
+        let url = URL(string: "https://api.magicthegathering.io/v1/sets/ktk/booster")!
+        
+        let dataTask = session.dataTask(with: url) { (data, response, error) in
+ 
+            if error != nil {
+                print(error!.localizedDescription)
+            } else {
+ 
+                if let json = try? JSONSerialization.jsonObject(with: data!, options: .mutableContainers) {
+                    if let data = json as? [String: AnyObject] {
+                        print(data)
+                        // if let items = data["data"] as? [[String: AnyObject]] {
+                        //for item in items {
+                        //print(item["link"]!)
+                        //self.browsers.append(item["link"]! as! String)
+                        //   if let booster = Boosters(json: item) {
+                        //     self.browsers.append(artist)
+                        //      }
+                        
+                    }
+                }
+            }
+        }
+        
+        dataTask.resume()
+    
         // Do any additional setup after loading the view.
         let defaults = UserDefaults.standard
                         defaults.set(25, forKey: "Age")

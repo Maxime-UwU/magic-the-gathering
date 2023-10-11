@@ -23,20 +23,19 @@ class boosterViewController: UIViewController {
                   } else {
                       if let json = try? JSONSerialization.jsonObject(with: data!, options: .mutableContainers) {
                           if let data = json as? [String: AnyObject] {
-                              
-                              if let items = data["data"] as? [[String: AnyObject]] {
-                                  for item in items {
+                              print(data)
+                             // if let items = data["data"] as? [[String: AnyObject]] {
+                                  //for item in items {
                                       //print(item["link"]!)
                                       //self.browsers.append(item["link"]! as! String)
                                    //   if let booster = Boosters(json: item) {
                                    //     self.browsers.append(artist)
-                                      }
+                                //      }
                                       
                                   }
                               }
                           }
                       }
-                  }
         // Do any additional setup after loading the view.
     }
     
