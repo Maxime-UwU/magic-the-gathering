@@ -8,9 +8,33 @@
 import UIKit
 
 class RegisterViewController: UIViewController {
+    
+    var allUsers: [[String: String]] = []
+    @IBOutlet weak var usernameField: UITextField!
+    
+    @IBOutlet weak var passwordField: UITextField!
+    
+    @IBOutlet weak var confPasswordField: UITextField!
+
+    
+    @IBAction func buttonRegister(_ sender: UIButton) {
+        let defaults = UserDefaults.standard
+
+        if passwordField.text == confPasswordField.text {
+            
+            let newUsers =  ["name": usernameField.text,"password": passwordField.text]
+            defaults.set(newUsers, forKey: "allUsers")
+
+            if let vc = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(identifier: "wiki") as? WikiViewController{
+                self.navigationController?.pushViewController(vc, animated: true)
+            }
+        }
+
+    }
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        
 
         // Do any additional setup after loading the view.
     }
