@@ -9,6 +9,8 @@
 /* Begin PBXBuildFile section */
 		079521572AD6ACF6008141A7 /* RegisterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 079521562AD6ACF6008141A7 /* RegisterViewController.swift */; };
 		17FE99C72AD71096009B3A2D /* WikiViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17FE99C62AD71096009B3A2D /* WikiViewController.swift */; };
+		17FE99C92AD73546009B3A2D /* boosterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17FE99C82AD73546009B3A2D /* boosterViewController.swift */; };
+		17FE99CB2AD7378F009B3A2D /* Booster.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17FE99CA2AD7378F009B3A2D /* Booster.swift */; };
 		50B2C9302AD5987F00C8F36B /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50B2C92F2AD5987F00C8F36B /* AppDelegate.swift */; };
 		50B2C9322AD5987F00C8F36B /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50B2C9312AD5987F00C8F36B /* SceneDelegate.swift */; };
 		50B2C9342AD5987F00C8F36B /* LoginController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50B2C9332AD5987F00C8F36B /* LoginController.swift */; };
@@ -21,6 +23,8 @@
 /* Begin PBXFileReference section */
 		079521562AD6ACF6008141A7 /* RegisterViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterViewController.swift; sourceTree = "<group>"; };
 		17FE99C62AD71096009B3A2D /* WikiViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WikiViewController.swift; sourceTree = "<group>"; };
+		17FE99C82AD73546009B3A2D /* boosterViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = boosterViewController.swift; sourceTree = "<group>"; };
+		17FE99CA2AD7378F009B3A2D /* Booster.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Booster.swift; sourceTree = "<group>"; };
 		50B2C92C2AD5987F00C8F36B /* magic-the-gathering.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "magic-the-gathering.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		50B2C92F2AD5987F00C8F36B /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		50B2C9312AD5987F00C8F36B /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -47,6 +51,7 @@
 			isa = PBXGroup;
 			children = (
 				50B2C9572AD6AFA300C8F36B /* User.swift */,
+				17FE99CA2AD7378F009B3A2D /* Booster.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -66,6 +71,7 @@
 				50B2C9332AD5987F00C8F36B /* LoginController.swift */,
 				079521562AD6ACF6008141A7 /* RegisterViewController.swift */,
 				17FE99C62AD71096009B3A2D /* WikiViewController.swift */,
+				17FE99C82AD73546009B3A2D /* boosterViewController.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -175,7 +181,9 @@
 				50B2C9302AD5987F00C8F36B /* AppDelegate.swift in Sources */,
 				50B2C9322AD5987F00C8F36B /* SceneDelegate.swift in Sources */,
 				079521572AD6ACF6008141A7 /* RegisterViewController.swift in Sources */,
+				17FE99C92AD73546009B3A2D /* boosterViewController.swift in Sources */,
 				17FE99C72AD71096009B3A2D /* WikiViewController.swift in Sources */,
+				17FE99CB2AD7378F009B3A2D /* Booster.swift in Sources */,
 				50B2C9582AD6AFA300C8F36B /* User.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
