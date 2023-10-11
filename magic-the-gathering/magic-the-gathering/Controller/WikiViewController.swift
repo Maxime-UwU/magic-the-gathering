@@ -57,41 +57,41 @@ class CardListCollectionViewController: UICollectionViewController {
         super.viewDidLoad()
 
        
-        let config = URLSessionConfiguration.default
-               let session = URLSession(configuration: config)
-               
-               let url = URL(string: "http://api.deezer.com/search?q=a")!
-               
-               let task = session.dataTask(with: url) { (data, response, error) in
-                   if error != nil {
-                       print(error!.localizedDescription)
-                   } else {
-                       if let json = try? JSONSerialization.jsonObject(with: data!, options: .mutableContainers) {
-                           if let data = json as? [String: AnyObject] {
-                               
-                               if let items = data["data"] as? [[String: AnyObject]] {
-                                   for item in items {
-                                       //print(item["link"]!)
-                                       //self.browsers.append(item["link"]! as! String)
-                                       if let card = Card(json: item) {
-                                         self.cards.append(card)
-                                       }
-                                       
-                                   }
-                               }
-                           }
-                       }
-                   }
-                   
-                   DispatchQueue.main.async {
-                       self.collectionView.reloadData()
-                   }
+//        let config = URLSessionConfiguration.default
+//               let session = URLSession(configuration: config)
+//               
+//               let url = URL(string: "http://api.deezer.com/search?q=a")!
+//               
+//               let task = session.dataTask(with: url) { (data, response, error) in
+//                   if error != nil {
+//                       print(error!.localizedDescription)
+//                   } else {
+//                       if let json = try? JSONSerialization.jsonObject(with: data!, options: .mutableContainers) {
+//                           if let data = json as? [String: AnyObject] {
+//                               
+//                               if let items = data["data"] as? [[String: AnyObject]] {
+//                                   for item in items {
+//                                       //print(item["link"]!)
+//                                       //self.browsers.append(item["link"]! as! String)
+//                                       if let card = Card(json: item) {
+//                                         self.cards.append(card)
+//                                       }
+//                                       
+//                                   }
+//                               }
+//                           }
+//                       }
+//                   }
+//                   
+//                   DispatchQueue.main.async {
+//                       self.collectionView.reloadData()
+//                   }
         
         self.collectionView!.register(UICollectionViewCell.self, forCellWithReuseIdentifier: reuseIdentifier)
 
     
     }
-        task.resume()
+//        task.resume()
 
     /*
     // MARK: - Navigation
