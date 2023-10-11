@@ -6,3 +6,15 @@
 //
 
 import Foundation
+ 
+struct Boosters: Codable {
+    var cards: [Card]
+    
+}
+
+
+extension Boosters {
+    init?(json: [[String: AnyObject]]) {
+        
+    }
+}

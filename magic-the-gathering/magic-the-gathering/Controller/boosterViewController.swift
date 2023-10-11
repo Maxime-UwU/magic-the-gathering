@@ -28,8 +28,8 @@ class boosterViewController: UIViewController {
                                   for item in items {
                                       //print(item["link"]!)
                                       //self.browsers.append(item["link"]! as! String)
-                                      if let artist = Artist(json: item) {
-                                        self.browsers.append(artist)
+                                   //   if let booster = Boosters(json: item) {
+                                   //     self.browsers.append(artist)
                                       }
                                       
                                   }
