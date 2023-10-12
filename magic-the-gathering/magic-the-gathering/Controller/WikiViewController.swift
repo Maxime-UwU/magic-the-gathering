@@ -52,89 +52,103 @@ class WikiViewController: UIViewController, UICollectionViewDelegate, UICollecti
         
         task.resume()
     }
-
+    
     func numberOfSections(in collectionView: UICollectionView) -> Int {
-            return 1
-        }
-        
-        func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-            return self.cards.count
-        }
-        
-        func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-            let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "CardCollectionViewCell", for: indexPath) as? CardCollectionViewCell
-
-                let dataItem = self.cards[indexPath.item]
-            
-            cell?.setup(with: dataItem)
-
-//            cell?.configure(with: dataItem)
-            print(dataItem)
-            
-            return cell!
-        }
-    
-//    override func viewDidLoad() {
-//        super.viewDidLoad()
-//        
-//        searchBar.layer.cornerRadius = 10 // Ajustez le rayon en fonction de vos préférences
-//        searchBar.layer.masksToBounds = true
-//        
-//        if let searchBarTextField = searchBar.value(forKey: "searchField") as? UITextField {
-//            
-//            searchBarTextField.textColor = UIColor.lightGray
-//            
-//            let placeholderText = "Rechercher une carte"
-//            let attributedPlaceholder = NSAttributedString(
-//                            string: placeholderText,
-//                            attributes: [NSAttributedString.Key.foregroundColor: UIColor.gray] // Remplacez "UIColor.red" par la couleur de votre choix
-//                        )
-//            searchBarTextField.attributedPlaceholder = attributedPlaceholder
-//            
-//            if let searchIcon = searchBarTextField.leftView as? UIImageView {
-//                searchIcon.image = UIImage(named: "iconRecherche")
-//            }
-//        }
-//        
-//        
-//    }
-    
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
+        return 1
     }
-    */
-
     
-
+    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+        return self.cards.count
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "CardCollectionViewCell", for: indexPath) as? CardCollectionViewCell
+        
+        let dataItem = self.cards[indexPath.item]
+        
+        cell?.setup(with: dataItem)
+        
+        //            cell?.configure(with: dataItem)
+        print(dataItem)
+        
+        return cell!
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, titleForHeaderInSection section: Int) -> String? {
+        return "Section \(section)"
+    }
+    
+     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        if let vc = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(identifier: "webview") as? WikiWebViewController {
+            
+            vc.linkBrowser = self.cards[indexPath.item].urlPage
+            
+            vc.modalPresentationStyle = .fullScreen
+            self.present(vc, animated: true, completion: nil)
+        }
+        
+        //    override func viewDidLoad() {
+        //        super.viewDidLoad()
+        //
+        //        searchBar.layer.cornerRadius = 10 // Ajustez le rayon en fonction de vos préférences
+        //        searchBar.layer.masksToBounds = true
+        //
+        //        if let searchBarTextField = searchBar.value(forKey: "searchField") as? UITextField {
+        //
+        //            searchBarTextField.textColor = UIColor.lightGray
+        //
+        //            let placeholderText = "Rechercher une carte"
+        //            let attributedPlaceholder = NSAttributedString(
+        //                            string: placeholderText,
+        //                            attributes: [NSAttributedString.Key.foregroundColor: UIColor.gray] // Remplacez "UIColor.red" par la couleur de votre choix
+        //                        )
+        //            searchBarTextField.attributedPlaceholder = attributedPlaceholder
+        //
+        //            if let searchIcon = searchBarTextField.leftView as? UIImageView {
+        //                searchIcon.image = UIImage(named: "iconRecherche")
+        //            }
+        //        }
+        //
+        //
+        //    }
+        
+        
+        /*
+         // MARK: - Navigation
+         
+         // In a storyboard-based application, you will often want to do a little preparation before navigation
+         override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+         // Get the new view controller using segue.destination.
+         // Pass the selected object to the new view controller.
+         }
+         */
+        
+        
+        
+    }
+    
+    
+    //extension WikiViewController: UICollectionViewDataSource {
+    //
+    //    func numberOfSections(in collectionView: UICollectionView) -> Int {
+    //            // #warning Incomplete implementation, return the number of sections
+    //            return 1
+    //        }
+    //
+    //    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+    //        Swift.print(cards.count)
+    //        return cards.count
+    //    }
+    //
+    //
+    //    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+    //        print("start cell for itmes")
+    //        let cardCell = collectionView.dequeueReusableCell(withReuseIdentifier: "CardCell", for: indexPath) as! CardCell
+    //        print("test card cell")
+    //        cardCell.setup(with: cards[indexPath.row])
+    //
+    //
+    //        return cardCell
+    //    }
+    //}
 }
-
-
-//extension WikiViewController: UICollectionViewDataSource {
-//    
-//    func numberOfSections(in collectionView: UICollectionView) -> Int {
-//            // #warning Incomplete implementation, return the number of sections
-//            return 1
-//        }
-//  
-//    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-//        Swift.print(cards.count)
-//        return cards.count
-//    }
-//    
-//    
-//    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-//        print("start cell for itmes")
-//        let cardCell = collectionView.dequeueReusableCell(withReuseIdentifier: "CardCell", for: indexPath) as! CardCell
-//        print("test card cell")
-//        cardCell.setup(with: cards[indexPath.row])
-//       
-//
-//        return cardCell
-//    }
-//}
