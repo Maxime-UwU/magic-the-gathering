@@ -1,19 +1,24 @@
-//
-//  WikiViewController.swift
-//  magic-the-gathering
-//
-//  Created by coding on 11/10/2023.
-//
-
 import UIKit
 
-class WikiViewController: UIViewController {
+class WikiViewController: UIViewController, UICollectionViewDelegate, UICollectionViewDataSource, UISearchBarDelegate {
     
     @IBOutlet weak var searchBar: UISearchBar!
     
+    var cards: [Card] = []
+    
+    var searchValue: String = ""
+    
+    var selectedSearchOption: Int = 0 
+    
+    @IBOutlet weak var collectionView: UICollectionView!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-        searchBar.layer.cornerRadius = 10 // Ajustez le rayon en fonction de vos préférences
+
+        
+        updateSearchResults()
+        searchBar.delegate = self
+        searchBar.layer.cornerRadius = 10
         searchBar.layer.masksToBounds = true
         
         if let searchBarTextField = searchBar.value(forKey: "searchField") as? UITextField {
@@ -22,135 +27,129 @@ class WikiViewController: UIViewController {
             
             let placeholderText = "Rechercher une carte"
             let attributedPlaceholder = NSAttributedString(
-                            string: placeholderText,
-                            attributes: [NSAttributedString.Key.foregroundColor: UIColor.gray] // Remplacez "UIColor.red" par la couleur de votre choix
-                        )
+                string: placeholderText,
+                attributes: [NSAttributedString.Key.foregroundColor: UIColor.gray] // Remplacez "UIColor.red" par la couleur de votre choix
+            )
             searchBarTextField.attributedPlaceholder = attributedPlaceholder
+        }
+        
+    }
+    
+    var searchTimer: Timer?
+
+    func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
+        // Réinitialisez le minuteur si l'utilisateur continue de taper
+        searchTimer?.invalidate()
+        
+        // Définissez un délai de recherche de 0.5 seconde (par exemple)
+        searchTimer = Timer.scheduledTimer(withTimeInterval: 0.5, repeats: false) { [weak self] timer in
+            guard let self = self else { return }
+            self.searchValue = searchText
+            print(self.searchValue)
             
-            if let searchIcon = searchBarTextField.leftView as? UIImageView {
-                searchIcon.image = UIImage(named: "iconRecherche")
+            // Réinitialisez le tableau de cartes
+            self.cards = []
+            
+            // Mettez à jour la recherche dans la file d'attente principale
+            DispatchQueue.main.async {
+                self.updateSearchResults()
             }
         }
     }
     
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
-    }
-    */
-
-}
-
-private let reuseIdentifier = "Cell"
-
-class CardListCollectionViewController: UICollectionViewController {
-    
-    var cards: [Card] = []
-    
-    override func viewDidLoad() {
-        super.viewDidLoad()
-
-       
-//        let config = URLSessionConfiguration.default
-//               let session = URLSession(configuration: config)
-//               
-//               let url = URL(string: "http://api.deezer.com/search?q=a")!
-//               
-//               let task = session.dataTask(with: url) { (data, response, error) in
-//                   if error != nil {
-//                       print(error!.localizedDescription)
-//                   } else {
-//                       if let json = try? JSONSerialization.jsonObject(with: data!, options: .mutableContainers) {
-//                           if let data = json as? [String: AnyObject] {
-//                               
-//                               if let items = data["data"] as? [[String: AnyObject]] {
-//                                   for item in items {
-//                                       //print(item["link"]!)
-//                                       //self.browsers.append(item["link"]! as! String)
-//                                       if let card = Card(json: item) {
-//                                         self.cards.append(card)
-//                                       }
-//                                       
-//                                   }
-//                               }
-//                           }
-//                       }
-//                   }
-//                   
-//                   DispatchQueue.main.async {
-//                       self.collectionView.reloadData()
-//                   }
+    func updateSearchResults() {
+        var searchParam: String
+        switch selectedSearchOption {
+        case 0:
+            searchParam = "?name="
+        case 1:
+            searchParam = "?type="
+//        case 2:
+//            searchParam = "autre"
+        default:
+            searchParam = "?name=" // Par défaut, recherche par nom
+        }
         
-        self.collectionView!.register(UICollectionViewCell.self, forCellWithReuseIdentifier: reuseIdentifier)
-
+        Swift.print("star card list")
+        collectionView.dataSource = self
+        collectionView.delegate = self
+        
+        let config = URLSessionConfiguration.default
+        let session = URLSession(configuration: config)
+        
+        let url = URL(string: "https://api.magicthegathering.io/v1/cards" + searchParam + self.searchValue)!
+        
+        print("param :" + searchParam + "" + self.searchValue)
+        print(url)
+        
+        let task = session.dataTask(with: url) { (data, response, error) in
+            if error != nil {
+                Swift.print(error!.localizedDescription)
+            } else {
+                if let json = try? JSONSerialization.jsonObject(with: data!, options: .mutableContainers) {
+                    if let data = json as? [String: AnyObject] {
+                        if let items = data["cards"] as? [[String: AnyObject]] {
+                            for item in items {
+                                if let card = Card(json: item) {
+                                    self.cards.append(card)
+                                }
+                            }
+                        }
+                    }
+                }
+                
+                DispatchQueue.main.async {
+                    self.collectionView.reloadData()
+                }
+            }
+        }
+        task.resume()
+    }
     
-    }
-//        task.resume()
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using [segue destinationViewController].
-        // Pass the selected object to the new view controller.
-    }
-    */
-
-    // MARK: UICollectionViewDataSource
-
-    override func numberOfSections(in collectionView: UICollectionView) -> Int {
-        // #warning Incomplete implementation, return the number of sections
-        return 0
-    }
-
-
-    override func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        // #warning Incomplete implementation, return the number of items
-        return 0
-    }
-
-    override func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: reuseIdentifier, for: indexPath)
     
-        // Configure the cell
+    @IBAction func searchOptionChanged(_ sender: UISegmentedControl) {
+        selectedSearchOption = sender.selectedSegmentIndex
+            // Appeler la fonction pour mettre à jour la recherche ici
+            updateSearchResults()
+    }
     
-        return cell
-    }
+    func numberOfSections(in collectionView: UICollectionView) -> Int {
+        
+            return 1
+        }
+        
+        func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+            
+            return self.cards.count
+        }
+        
+        func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+            let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "CardCollectionViewCell", for: indexPath) as? CardCollectionViewCell
 
-    // MARK: UICollectionViewDelegate
+                let dataItem = self.cards[indexPath.item]
+            
+            cell?.setup(with: dataItem)
 
-    /*
-    // Uncomment this method to specify if the specified item should be highlighted during tracking
-    override func collectionView(_ collectionView: UICollectionView, shouldHighlightItemAt indexPath: IndexPath) -> Bool {
-        return true
-    }
-    */
-
-    /*
-    // Uncomment this method to specify if the specified item should be selected
-    override func collectionView(_ collectionView: UICollectionView, shouldSelectItemAt indexPath: IndexPath) -> Bool {
-        return true
-    }
-    */
-
-    /*
-    // Uncomment these methods to specify if an action menu should be displayed for the specified item, and react to actions performed on the item
-    override func collectionView(_ collectionView: UICollectionView, shouldShowMenuForItemAt indexPath: IndexPath) -> Bool {
-        return false
-    }
-
-    override func collectionView(_ collectionView: UICollectionView, canPerformAction action: Selector, forItemAt indexPath: IndexPath, withSender sender: Any?) -> Bool {
-        return false
-    }
-
-    override func collectionView(_ collectionView: UICollectionView, performAction action: Selector, forItemAt indexPath: IndexPath, withSender sender: Any?) {
+//            cell?.configure(with: dataItem)
+            
+//            print(dataItem)
+            
+            return cell!
+        }
     
+        
+    func collectionView(_ collectionView: UICollectionView, titleForHeaderInSection section: Int) -> String? {
+        return "Section \(section)"
     }
-    */
-}
+    
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        if let vc = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(identifier: "webview") as? WikiWebViewController {
+            
+            vc.linkBrowser = self.cards[indexPath.item].urlPage
+            
+            vc.modalPresentationStyle = .fullScreen
+            self.present(vc, animated: true, completion: nil)
+        }
+    }
+        
+    }
