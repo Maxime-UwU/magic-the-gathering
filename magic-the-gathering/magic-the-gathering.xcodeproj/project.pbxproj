@@ -12,6 +12,7 @@
 		07F7D5D72AD7367F00876FA1 /* Card.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07F7D5D62AD7367E00876FA1 /* Card.swift */; };
 		07F7D5DB2AD73D5600876FA1 /* TestCollectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07F7D5DA2AD73D5600876FA1 /* TestCollectionViewController.swift */; };
 		17FE99C72AD71096009B3A2D /* WikiViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17FE99C62AD71096009B3A2D /* WikiViewController.swift */; };
+		509AD5512AD85F77003D76CB /* WikiWebViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 509AD5502AD85F77003D76CB /* WikiWebViewController.swift */; };
 		50B2C9302AD5987F00C8F36B /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50B2C92F2AD5987F00C8F36B /* AppDelegate.swift */; };
 		50B2C9322AD5987F00C8F36B /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50B2C9312AD5987F00C8F36B /* SceneDelegate.swift */; };
 		50B2C9342AD5987F00C8F36B /* LoginController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50B2C9332AD5987F00C8F36B /* LoginController.swift */; };
@@ -27,6 +28,7 @@
 		07F7D5D62AD7367E00876FA1 /* Card.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Card.swift; sourceTree = "<group>"; };
 		07F7D5DA2AD73D5600876FA1 /* TestCollectionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestCollectionViewController.swift; sourceTree = "<group>"; };
 		17FE99C62AD71096009B3A2D /* WikiViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WikiViewController.swift; sourceTree = "<group>"; };
+		509AD5502AD85F77003D76CB /* WikiWebViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WikiWebViewController.swift; sourceTree = "<group>"; };
 		50B2C92C2AD5987F00C8F36B /* magic-the-gathering.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "magic-the-gathering.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		50B2C92F2AD5987F00C8F36B /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		50B2C9312AD5987F00C8F36B /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -75,6 +77,7 @@
 				17FE99C62AD71096009B3A2D /* WikiViewController.swift */,
 				07F7D5DA2AD73D5600876FA1 /* TestCollectionViewController.swift */,
 				07B7AD072AD83CCB0004757E /* CardCollectionViewCell.swift */,
+				509AD5502AD85F77003D76CB /* WikiWebViewController.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -189,6 +192,7 @@
 				17FE99C72AD71096009B3A2D /* WikiViewController.swift in Sources */,
 				07B7AD082AD83CCB0004757E /* CardCollectionViewCell.swift in Sources */,
 				50B2C9582AD6AFA300C8F36B /* User.swift in Sources */,
+				509AD5512AD85F77003D76CB /* WikiWebViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -219,6 +219,9 @@
                                             <color key="baseForegroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                             <color key="baseBackgroundColor" red="0.15294116739999999" green="0.60784316059999999" blue="0.81960785390000002" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                         </buttonConfiguration>
+                                        <connections>
+                                            <action selector="buttonRegister:" destination="BsH-Eo-zKd" eventType="touchUpInside" id="cbw-Ax-xnx"/>
+                                        </connections>
                                     </button>
                                 </subviews>
                                 <color key="backgroundColor" white="0.25" alpha="0.65000000000000002" colorSpace="custom" customColorSpace="calibratedWhite"/>
@@ -243,6 +246,11 @@
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="REN-FV-qaO"/>
+                    <connections>
+                        <outlet property="confPasswordField" destination="ygw-ec-blp" id="nsG-zh-tHX"/>
+                        <outlet property="passwordField" destination="7bs-CH-679" id="etx-TD-7d1"/>
+                        <outlet property="usernameField" destination="9N3-ky-mFi" id="5tO-kM-n3s"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dI1-Lb-ClJ" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
@@ -366,6 +374,73 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="bmM-mR-mj0" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1050" y="736"/>
+        </scene>
+        <!--Wiki Web View Controller-->
+        <scene sceneID="BmS-Kf-u5E">
+            <objects>
+                <viewController storyboardIdentifier="webview" id="Kfk-1c-7Vb" customClass="WikiWebViewController" customModule="magic_the_gathering" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="vbV-qI-cxi">
+                        <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <wkWebView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="wEP-fG-hkG">
+                                <rect key="frame" x="0.0" y="150" width="393" height="702"/>
+                                <color key="backgroundColor" red="0.36078431370000003" green="0.38823529410000002" blue="0.4039215686" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <wkWebViewConfiguration key="configuration">
+                                    <audiovisualMediaTypes key="mediaTypesRequiringUserActionForPlayback" none="YES"/>
+                                    <wkPreferences key="preferences"/>
+                                </wkWebViewConfiguration>
+                            </wkWebView>
+                            <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="eK6-0J-8SA">
+                                <rect key="frame" x="148" y="81" width="97" height="34"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Lwt-fe-eXq">
+                                <rect key="frame" x="36" y="81" width="75" height="35"/>
+                                <state key="normal" title="Button"/>
+                                <buttonConfiguration key="configuration" style="plain" title="Close"/>
+                                <connections>
+                                    <action selector="closeTap:" destination="Kfk-1c-7Vb" eventType="touchUpInside" id="9sw-7X-0FG"/>
+                                    <action selector="closetap:" destination="Kfk-1c-7Vb" eventType="touchUpInside" id="44C-Ma-dIH"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="jJy-kf-DQf">
+                                <rect key="frame" x="272" y="80" width="87" height="35"/>
+                                <state key="normal" title="Button"/>
+                                <buttonConfiguration key="configuration" style="plain" title="Search"/>
+                                <connections>
+                                    <action selector="actiontap:" destination="Kfk-1c-7Vb" eventType="touchUpInside" id="S4Z-wI-OK6"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="oOu-lC-54j"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="oOu-lC-54j" firstAttribute="trailing" secondItem="eK6-0J-8SA" secondAttribute="trailing" constant="148" id="145-jB-Zcj"/>
+                            <constraint firstAttribute="trailing" secondItem="jJy-kf-DQf" secondAttribute="trailing" constant="34" id="1FW-OJ-eqr"/>
+                            <constraint firstItem="eK6-0J-8SA" firstAttribute="top" secondItem="oOu-lC-54j" secondAttribute="top" constant="22" id="8nt-ds-GMe"/>
+                            <constraint firstItem="wEP-fG-hkG" firstAttribute="top" secondItem="vbV-qI-cxi" secondAttribute="top" constant="150" id="BDJ-ZJ-Rwg"/>
+                            <constraint firstAttribute="trailing" secondItem="Lwt-fe-eXq" secondAttribute="trailing" constant="282" id="DMs-AA-GE5"/>
+                            <constraint firstItem="jJy-kf-DQf" firstAttribute="leading" secondItem="vbV-qI-cxi" secondAttribute="leading" constant="272" id="O4T-66-tQi"/>
+                            <constraint firstItem="Lwt-fe-eXq" firstAttribute="top" secondItem="vbV-qI-cxi" secondAttribute="top" constant="81" id="OpA-tz-uwi"/>
+                            <constraint firstItem="eK6-0J-8SA" firstAttribute="leading" secondItem="vbV-qI-cxi" secondAttribute="leading" constant="148" id="UGX-1Y-RIw"/>
+                            <constraint firstAttribute="bottom" secondItem="wEP-fG-hkG" secondAttribute="bottom" id="UbL-hA-zZP"/>
+                            <constraint firstItem="wEP-fG-hkG" firstAttribute="leading" secondItem="vbV-qI-cxi" secondAttribute="leading" id="cnp-Rf-LeV"/>
+                            <constraint firstItem="eK6-0J-8SA" firstAttribute="leading" secondItem="oOu-lC-54j" secondAttribute="leading" constant="148" id="mzm-gF-KWp"/>
+                            <constraint firstAttribute="trailing" secondItem="wEP-fG-hkG" secondAttribute="trailing" id="pm7-Aw-Gpf"/>
+                            <constraint firstItem="Lwt-fe-eXq" firstAttribute="leading" secondItem="vbV-qI-cxi" secondAttribute="leading" constant="36" id="umL-tS-HtY"/>
+                            <constraint firstItem="jJy-kf-DQf" firstAttribute="top" secondItem="vbV-qI-cxi" secondAttribute="top" constant="80" id="wCw-ML-llY"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="WebView" destination="wEP-fG-hkG" id="BC3-hw-E57"/>
+                        <outlet property="textField" destination="eK6-0J-8SA" id="zSk-VB-rAj"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="nHi-w4-2g2" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2684.7328244274809" y="735.91549295774655"/>
         </scene>
     </scenes>
     <resources>
