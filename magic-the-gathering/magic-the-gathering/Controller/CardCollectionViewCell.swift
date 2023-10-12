@@ -11,7 +11,6 @@ class CardCollectionViewCell: UICollectionViewCell {
         @IBOutlet weak var nameLabel: UILabel!
         
         func setup(with card: Card) {
-            print(card.name)
             nameLabel.text = card.name
         }
 

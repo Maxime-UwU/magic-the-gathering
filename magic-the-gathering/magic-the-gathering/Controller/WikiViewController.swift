@@ -9,15 +9,32 @@ import UIKit
 
 class WikiViewController: UIViewController, UICollectionViewDelegate, UICollectionViewDataSource {
     
-    
     @IBOutlet weak var searchBar: UISearchBar!
     
     var cards: [Card] = []
+    
+    let searchValue = "Creature"
+    let searchParameter = "?name="
     
     @IBOutlet weak var collectionView: UICollectionView!
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        searchBar.layer.cornerRadius = 10
+        searchBar.layer.masksToBounds = true
+
+        if let searchBarTextField = searchBar.value(forKey: "searchField") as? UITextField {
+            
+            searchBarTextField.textColor = UIColor.lightGray
+            
+            let placeholderText = "Rechercher une carte"
+            let attributedPlaceholder = NSAttributedString(
+                string: placeholderText,
+                attributes: [NSAttributedString.Key.foregroundColor: UIColor.gray] // Remplacez "UIColor.red" par la couleur de votre choix
+            )
+            searchBarTextField.attributedPlaceholder = attributedPlaceholder
+        }
         
         collectionView.dataSource = self
         collectionView.delegate = self
@@ -26,7 +43,7 @@ class WikiViewController: UIViewController, UICollectionViewDelegate, UICollecti
         let config = URLSessionConfiguration.default
         let session = URLSession(configuration: config)
         
-        let url = URL(string: "https://api.magicthegathering.io/v1/cards/")!
+        let url = URL(string: "https://api.magicthegathering.io/v1/cards" + searchParameter + searchValue)!
         
         let task = session.dataTask(with: url) { (data, response, error) in
             if error != nil {
@@ -49,7 +66,6 @@ class WikiViewController: UIViewController, UICollectionViewDelegate, UICollecti
                 }
             }
         }
-        
         task.resume()
     }
 
@@ -58,6 +74,7 @@ class WikiViewController: UIViewController, UICollectionViewDelegate, UICollecti
         }
         
         func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+            
             return self.cards.count
         }
         
@@ -69,6 +86,7 @@ class WikiViewController: UIViewController, UICollectionViewDelegate, UICollecti
             cell?.setup(with: dataItem)
 
 //            cell?.configure(with: dataItem)
+            
             print(dataItem)
             
             return cell!
