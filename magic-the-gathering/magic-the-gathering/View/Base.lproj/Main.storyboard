@@ -105,7 +105,7 @@
                                     <constraint firstAttribute="trailing" secondItem="2dB-1w-xVS" secondAttribute="trailing" constant="9" id="NbM-mT-jRF"/>
                                     <constraint firstItem="Vn8-eQ-pmB" firstAttribute="leading" secondItem="f1P-4t-DDa" secondAttribute="leading" constant="19" id="Nyj-Jt-K4a"/>
                                     <constraint firstItem="RmQ-0C-sFD" firstAttribute="top" secondItem="f1P-4t-DDa" secondAttribute="top" constant="15" id="Obu-9E-avx"/>
-                                    <constraint firstItem="67H-kq-pcd" firstAttribute="top" secondItem="f1P-4t-DDa" secondAttribute="top" constant="345" id="cVb-Q6-fEF"/>
+                                    <constraint firstItem="67H-kq-pcd" firstAttribute="top" secondItem="f1P-4t-DDa" secondAttribute="top" constant="330" id="cVb-Q6-fEF"/>
                                     <constraint firstAttribute="trailing" secondItem="EKo-fw-LT8" secondAttribute="trailing" constant="8" id="d2N-0x-LLi"/>
                                     <constraint firstItem="2dB-1w-xVS" firstAttribute="leading" secondItem="f1P-4t-DDa" secondAttribute="leading" constant="24" id="fEl-4g-PVz"/>
                                     <constraint firstItem="FTn-1d-xaI" firstAttribute="leading" secondItem="f1P-4t-DDa" secondAttribute="leading" constant="91" id="frZ-0D-V1k"/>
@@ -253,56 +253,82 @@
             <objects>
                 <viewController storyboardIdentifier="wiki" id="4w2-jM-iF8" customClass="WikiViewController" customModule="magic_the_gathering" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="xxs-7H-hU8">
-                        <rect key="frame" x="0.0" y="0.0" width="393" height="769"/>
+                        <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="30n-RT-9lT">
-                                <rect key="frame" x="0.0" y="129" width="393" height="610"/>
+                            <searchBar contentMode="redraw" text="" translatesAutoresizingMaskIntoConstraints="NO" id="Isg-HJ-xjO">
+                                <rect key="frame" x="21" y="66" width="351" height="56"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <color key="barTintColor" red="0.2666666667" green="0.10980392160000001" blue="0.24313725489999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <textInputTraits key="textInputTraits"/>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="color" keyPath="searchBar.textColor">
+                                        <color key="value" systemColor="tableCellBlueTextColor"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
+                                <connections>
+                                    <outlet property="delegate" destination="4w2-jM-iF8" id="06V-zS-reh"/>
+                                </connections>
+                            </searchBar>
+                            <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="xXo-R8-KcH">
+                                <rect key="frame" x="0.0" y="80" width="393" height="742"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
-                                <collectionViewFlowLayout key="collectionViewLayout" automaticEstimatedItemSize="YES" minimumLineSpacing="10" minimumInteritemSpacing="10" id="WM4-Ix-RUI">
+                                <collectionViewFlowLayout key="collectionViewLayout" automaticEstimatedItemSize="YES" minimumLineSpacing="10" minimumInteritemSpacing="10" id="mPf-zM-o2c">
                                     <size key="itemSize" width="128" height="128"/>
                                     <size key="headerReferenceSize" width="0.0" height="0.0"/>
                                     <size key="footerReferenceSize" width="0.0" height="0.0"/>
                                     <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
                                 </collectionViewFlowLayout>
                                 <cells>
-                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" id="50O-DQ-JvW">
-                                        <rect key="frame" x="0.0" y="0.0" width="127.99999999999997" height="128"/>
+                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="CardCollectionViewCell" id="gM5-87-IWc" customClass="CardCollectionViewCell" customModule="magic_the_gathering" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="0.0" width="127.33333333333331" height="127.33333333333333"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                        <collectionViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" id="pMV-LO-Dbk">
-                                            <rect key="frame" x="0.0" y="0.0" width="127.99999999999997" height="128"/>
+                                        <collectionViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" id="zsZ-DD-SVT">
+                                            <rect key="frame" x="0.0" y="0.0" width="127.33333333333331" height="127.33333333333333"/>
                                             <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="zuQ-Bn-PcI">
+                                                    <rect key="frame" x="42" y="54.000000000000007" width="41.333333333333343" height="20.333333333333336"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                            </subviews>
+                                            <constraints>
+                                                <constraint firstItem="zuQ-Bn-PcI" firstAttribute="top" secondItem="zsZ-DD-SVT" secondAttribute="top" constant="54" id="UUt-pI-RVA"/>
+                                                <constraint firstAttribute="trailing" secondItem="zuQ-Bn-PcI" secondAttribute="trailing" constant="43.999999999999972" id="Y5l-gc-Kvz"/>
+                                                <constraint firstAttribute="bottom" secondItem="zuQ-Bn-PcI" secondAttribute="bottom" constant="53" id="lE1-Jh-whj"/>
+                                                <constraint firstItem="zuQ-Bn-PcI" firstAttribute="leading" secondItem="zsZ-DD-SVT" secondAttribute="leading" constant="42" id="nxv-pY-ZjC"/>
+                                            </constraints>
                                         </collectionViewCellContentView>
+                                        <connections>
+                                            <outlet property="nameLabel" destination="zuQ-Bn-PcI" id="tB4-ht-r8j"/>
+                                        </connections>
                                     </collectionViewCell>
                                 </cells>
                             </collectionView>
-                            <searchBar contentMode="redraw" restorationIdentifier="searchField" text="" placeholder="Rechercher une carte" translatesAutoresizingMaskIntoConstraints="NO" id="Isg-HJ-xjO">
-                                <rect key="frame" x="21" y="66" width="351" height="56"/>
-                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                <color key="barTintColor" red="0.2666666667" green="0.10980392160000001" blue="0.24313725489999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                <textInputTraits key="textInputTraits"/>
-                                <connections>
-                                    <outlet property="delegate" destination="4w2-jM-iF8" id="06V-zS-reh"/>
-                                </connections>
-                            </searchBar>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="Pf8-cP-pKb"/>
                         <color key="backgroundColor" red="0.1803921568627451" green="0.082352941176470587" blue="0.16470588235294117" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
-                            <constraint firstItem="Pf8-cP-pKb" firstAttribute="bottom" secondItem="30n-RT-9lT" secondAttribute="bottom" constant="30" id="2TM-Yk-JAG"/>
                             <constraint firstItem="Pf8-cP-pKb" firstAttribute="trailing" secondItem="Isg-HJ-xjO" secondAttribute="trailing" constant="21" id="2hz-Y2-l5P"/>
                             <constraint firstItem="Isg-HJ-xjO" firstAttribute="leading" secondItem="Pf8-cP-pKb" secondAttribute="leading" constant="21" id="5Jx-Ef-78s"/>
                             <constraint firstItem="Isg-HJ-xjO" firstAttribute="top" secondItem="Pf8-cP-pKb" secondAttribute="top" constant="7" id="QLN-O7-nEH"/>
-                            <constraint firstItem="Pf8-cP-pKb" firstAttribute="trailing" secondItem="30n-RT-9lT" secondAttribute="trailing" id="TM5-AY-oE7"/>
-                            <constraint firstItem="30n-RT-9lT" firstAttribute="leading" secondItem="Pf8-cP-pKb" secondAttribute="leading" id="Y87-bM-STc"/>
-                            <constraint firstItem="30n-RT-9lT" firstAttribute="top" secondItem="Pf8-cP-pKb" secondAttribute="top" constant="70" id="uT7-EV-oCO"/>
+                            <constraint firstAttribute="trailing" secondItem="xXo-R8-KcH" secondAttribute="trailing" id="X2q-kk-IfX"/>
+                            <constraint firstItem="xXo-R8-KcH" firstAttribute="leading" secondItem="xxs-7H-hU8" secondAttribute="leading" id="kOX-WW-bPX"/>
+                            <constraint firstAttribute="bottom" secondItem="xXo-R8-KcH" secondAttribute="bottom" constant="30" id="tXF-78-4Jx"/>
+                            <constraint firstItem="xXo-R8-KcH" firstAttribute="top" secondItem="xxs-7H-hU8" secondAttribute="top" constant="80" id="vcm-9M-8G3"/>
                         </constraints>
                     </view>
                     <tabBarItem key="tabBarItem" title="Wiki" image="mail.and.text.magnifyingglass" catalog="system" id="euh-D1-tmp"/>
+                    <connections>
+                        <outlet property="collectionView" destination="xXo-R8-KcH" id="2NX-o3-1iW"/>
+                        <outlet property="searchBar" destination="Isg-HJ-xjO" id="hWB-r0-ztb"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="aAH-0J-dY7" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1976" y="668"/>
+            <point key="canvasLocation" x="1974.8091603053435" y="735.91549295774655"/>
         </scene>
         <!--Item-->
         <scene sceneID="d8W-xr-wyB">
@@ -326,7 +352,7 @@
         <!--Tab Bar Controller-->
         <scene sceneID="YC5-6t-iLT">
             <objects>
-                <tabBarController automaticallyAdjustsScrollViewInsets="NO" id="HUu-Ir-PQw" sceneMemberID="viewController">
+                <tabBarController storyboardIdentifier="tabBar" automaticallyAdjustsScrollViewInsets="NO" id="HUu-Ir-PQw" sceneMemberID="viewController">
                     <toolbarItems/>
                     <tabBar key="tabBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" translucent="NO" id="JZW-lo-ZAE">
                         <rect key="frame" x="0.0" y="0.0" width="1000" height="1000"/>
@@ -336,13 +362,10 @@
                         <color key="barTintColor" red="0.18039215689999999" green="0.08235294118" blue="0.1647058824" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <color key="selectedImageTintColor" red="0.94901960784313721" green="0.74509803921568629" blue="0.16470588235294117" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                     </tabBar>
-                    <connections>
-                        <segue destination="4w2-jM-iF8" kind="relationship" relationship="viewControllers" id="zcW-53-bB4"/>
-                    </connections>
                 </tabBarController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="bmM-mR-mj0" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1050" y="668"/>
+            <point key="canvasLocation" x="1050" y="736"/>
         </scene>
     </scenes>
     <resources>
@@ -351,6 +374,9 @@
         <image name="mail.and.text.magnifyingglass" catalog="system" width="128" height="109"/>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+        <systemColor name="tableCellBlueTextColor">
+            <color red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
     </resources>
 </document>

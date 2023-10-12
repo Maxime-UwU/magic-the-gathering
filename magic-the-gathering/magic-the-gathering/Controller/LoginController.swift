@@ -11,8 +11,7 @@ class LoginController: UIViewController {
     
     @IBAction func goRegister(_ sender: Any) {
         if let vc = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(identifier: "Register") as? RegisterViewController {
-            // Masquer la barre d'onglets lorsque SecondViewController est poussé
-            vc.hidesBottomBarWhenPushed = true
+            vc.hidesBottomBarWhenPushed = false
             self.navigationController?.pushViewController(vc, animated: true)
             self.navigationController?.navigationBar.tintColor = UIColor(red: 63/255.0, green: 63/255.0, blue: 63/255.0, alpha: 1)
         }
@@ -23,20 +22,24 @@ class LoginController: UIViewController {
     
     @IBOutlet weak var passwordField: UITextField!
     
+    
+    
+    
     @IBAction func buttonLogin(_ sender: UIButton) {
         allUsers.forEach { user in
-            if user["name"] == usernameField.text{
-                if user["password"] == passwordField.text{
-                    if let vc = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(identifier: "wiki") as? WikiViewController{
-                        self.navigationController?.pushViewController(vc, animated: true)
+            if user["name"] == usernameField.text {
+                if user["password"] == passwordField.text {
+                    if let tabBarController = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(identifier: "tabBar") as? UITabBarController {
+                        let wikiVC = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(identifier: "wiki") as! WikiViewController
+                        tabBarController.viewControllers = [wikiVC]
+                        
+                        self.navigationController?.pushViewController(tabBarController, animated: true)
+                        self.navigationController?.navigationBar.tintColor = UIColor(red: 242/255.0, green: 190/255.0, blue: 42/255.0, alpha: 1)
                     }
                 }
-                
             }
         }
-
     }
-    
     
     override func viewDidLoad() {
         super.viewDidLoad()
