@@ -265,7 +265,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <searchBar contentMode="redraw" text="" translatesAutoresizingMaskIntoConstraints="NO" id="Isg-HJ-xjO">
-                                <rect key="frame" x="21" y="66" width="351" height="56"/>
+                                <rect key="frame" x="150" y="59" width="233" height="56"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <color key="barTintColor" red="0.2666666667" green="0.10980392160000001" blue="0.24313725489999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <textInputTraits key="textInputTraits"/>
@@ -274,12 +274,20 @@
                                         <color key="value" systemColor="tableCellBlueTextColor"/>
                                     </userDefinedRuntimeAttribute>
                                 </userDefinedRuntimeAttributes>
-                                <connections>
-                                    <outlet property="delegate" destination="4w2-jM-iF8" id="06V-zS-reh"/>
-                                </connections>
                             </searchBar>
+                            <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="qBK-HX-bFq">
+                                <rect key="frame" x="10" y="71" width="121" height="32"/>
+                                <segments>
+                                    <segment title="Name"/>
+                                    <segment title="Type"/>
+                                </segments>
+                                <color key="selectedSegmentTintColor" red="0.94901960780000005" green="0.74509803919999995" blue="0.1647058824" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <connections>
+                                    <action selector="searchOptionChanged:" destination="4w2-jM-iF8" eventType="valueChanged" id="njG-xL-vxz"/>
+                                </connections>
+                            </segmentedControl>
                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="xXo-R8-KcH">
-                                <rect key="frame" x="0.0" y="80" width="393" height="742"/>
+                                <rect key="frame" x="0.0" y="160" width="393" height="682"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <collectionViewFlowLayout key="collectionViewLayout" automaticEstimatedItemSize="YES" minimumLineSpacing="10" minimumInteritemSpacing="10" id="mPf-zM-o2c">
                                     <size key="itemSize" width="128" height="128"/>
@@ -319,13 +327,16 @@
                         <viewLayoutGuide key="safeArea" id="Pf8-cP-pKb"/>
                         <color key="backgroundColor" red="0.1803921568627451" green="0.082352941176470587" blue="0.16470588235294117" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
-                            <constraint firstItem="Pf8-cP-pKb" firstAttribute="trailing" secondItem="Isg-HJ-xjO" secondAttribute="trailing" constant="21" id="2hz-Y2-l5P"/>
-                            <constraint firstItem="Isg-HJ-xjO" firstAttribute="leading" secondItem="Pf8-cP-pKb" secondAttribute="leading" constant="21" id="5Jx-Ef-78s"/>
-                            <constraint firstItem="Isg-HJ-xjO" firstAttribute="top" secondItem="Pf8-cP-pKb" secondAttribute="top" constant="7" id="QLN-O7-nEH"/>
+                            <constraint firstItem="Isg-HJ-xjO" firstAttribute="top" secondItem="Pf8-cP-pKb" secondAttribute="top" id="AnS-d2-Qke"/>
+                            <constraint firstItem="Pf8-cP-pKb" firstAttribute="trailing" secondItem="qBK-HX-bFq" secondAttribute="trailing" constant="262" id="FKG-E4-yzq"/>
+                            <constraint firstItem="Pf8-cP-pKb" firstAttribute="trailing" secondItem="Isg-HJ-xjO" secondAttribute="trailing" constant="10" id="IRf-uo-1e6"/>
                             <constraint firstAttribute="trailing" secondItem="xXo-R8-KcH" secondAttribute="trailing" id="X2q-kk-IfX"/>
+                            <constraint firstItem="qBK-HX-bFq" firstAttribute="top" secondItem="Pf8-cP-pKb" secondAttribute="top" constant="12" id="gi6-gm-hIr"/>
                             <constraint firstItem="xXo-R8-KcH" firstAttribute="leading" secondItem="xxs-7H-hU8" secondAttribute="leading" id="kOX-WW-bPX"/>
-                            <constraint firstAttribute="bottom" secondItem="xXo-R8-KcH" secondAttribute="bottom" constant="30" id="tXF-78-4Jx"/>
-                            <constraint firstItem="xXo-R8-KcH" firstAttribute="top" secondItem="xxs-7H-hU8" secondAttribute="top" constant="80" id="vcm-9M-8G3"/>
+                            <constraint firstItem="Isg-HJ-xjO" firstAttribute="leading" secondItem="Pf8-cP-pKb" secondAttribute="leading" constant="150" id="p6k-hL-MaE"/>
+                            <constraint firstItem="qBK-HX-bFq" firstAttribute="leading" secondItem="Pf8-cP-pKb" secondAttribute="leading" constant="10" id="rkm-0M-n4e"/>
+                            <constraint firstAttribute="bottom" secondItem="xXo-R8-KcH" secondAttribute="bottom" constant="10" id="tXF-78-4Jx"/>
+                            <constraint firstItem="xXo-R8-KcH" firstAttribute="top" secondItem="xxs-7H-hU8" secondAttribute="top" constant="160" id="vcm-9M-8G3"/>
                         </constraints>
                     </view>
                     <tabBarItem key="tabBarItem" title="Wiki" image="mail.and.text.magnifyingglass" catalog="system" id="euh-D1-tmp"/>
