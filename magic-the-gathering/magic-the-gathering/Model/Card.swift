@@ -9,18 +9,15 @@ import Foundation
 
 struct Card {
     let name: String
-    let imageUrl: String
 }
 
 extension Card {
     init?(json: [String: AnyObject]) {
-        guard let name = json["name"] as? String,
-              let image = json["imageUrl"] as? String
+        guard let name = json["name"] as? String
         else {
             return nil
         }
         self.name = name
-        self.imageUrl = image
     }
 }
 

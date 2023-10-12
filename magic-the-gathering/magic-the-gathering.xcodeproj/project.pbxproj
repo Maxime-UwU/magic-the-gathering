@@ -10,6 +10,7 @@
 		079521572AD6ACF6008141A7 /* RegisterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 079521562AD6ACF6008141A7 /* RegisterViewController.swift */; };
 		07F7D5D72AD7367F00876FA1 /* Card.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07F7D5D62AD7367E00876FA1 /* Card.swift */; };
 		07F7D5DB2AD73D5600876FA1 /* TestCollectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07F7D5DA2AD73D5600876FA1 /* TestCollectionViewController.swift */; };
+		07F7D5DF2AD7DC1D00876FA1 /* CardListCollectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07F7D5DE2AD7DC1D00876FA1 /* CardListCollectionViewController.swift */; };
 		17FE99C72AD71096009B3A2D /* WikiViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17FE99C62AD71096009B3A2D /* WikiViewController.swift */; };
 		50B2C9302AD5987F00C8F36B /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50B2C92F2AD5987F00C8F36B /* AppDelegate.swift */; };
 		50B2C9322AD5987F00C8F36B /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50B2C9312AD5987F00C8F36B /* SceneDelegate.swift */; };
@@ -24,6 +25,7 @@
 		079521562AD6ACF6008141A7 /* RegisterViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterViewController.swift; sourceTree = "<group>"; };
 		07F7D5D62AD7367E00876FA1 /* Card.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Card.swift; sourceTree = "<group>"; };
 		07F7D5DA2AD73D5600876FA1 /* TestCollectionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestCollectionViewController.swift; sourceTree = "<group>"; };
+		07F7D5DE2AD7DC1D00876FA1 /* CardListCollectionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardListCollectionViewController.swift; sourceTree = "<group>"; };
 		17FE99C62AD71096009B3A2D /* WikiViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WikiViewController.swift; sourceTree = "<group>"; };
 		50B2C92C2AD5987F00C8F36B /* magic-the-gathering.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "magic-the-gathering.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		50B2C92F2AD5987F00C8F36B /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -72,6 +74,7 @@
 				079521562AD6ACF6008141A7 /* RegisterViewController.swift */,
 				17FE99C62AD71096009B3A2D /* WikiViewController.swift */,
 				07F7D5DA2AD73D5600876FA1 /* TestCollectionViewController.swift */,
+				07F7D5DE2AD7DC1D00876FA1 /* CardListCollectionViewController.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -177,6 +180,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				07F7D5DF2AD7DC1D00876FA1 /* CardListCollectionViewController.swift in Sources */,
 				07F7D5DB2AD73D5600876FA1 /* TestCollectionViewController.swift in Sources */,
 				50B2C9342AD5987F00C8F36B /* LoginController.swift in Sources */,
 				50B2C9302AD5987F00C8F36B /* AppDelegate.swift in Sources */,

@@ -1,5 +1,5 @@
 //
-//  CardListCollectionViewController.swift
+//  WikiListCollectionViewController.swift
 //  magic-the-gathering
 //
 //  Created by Vahé Krikorian on 12/10/2023.
@@ -7,53 +7,22 @@
 
 import UIKit
 
+private let reuseIdentifier = "Cell"
 
-class CardCell: UICollectionViewCell {
-    @IBOutlet weak var nameLabel: UILabel!
-}
-    
+class WikiListCollectionViewController: UICollectionViewController {
 
-
-private let reuseIdentifier = "CardCell"
-
-class CardListCollectionViewController: UICollectionViewController {
-    
-    var cards: [Card] = []
-    
-    
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        print("star card list")
-        let config = URLSessionConfiguration.default
-        let session = URLSession(configuration: config)
-        
-        let url = URL(string: "https://api.magicthegathering.io/v1/cards/")!
-        
-        let task = session.dataTask(with: url) { (data, response, error) in
-            if error != nil {
-                print(error!.localizedDescription)
-            } else {
-                if let json = try? JSONSerialization.jsonObject(with: data!, options: .mutableContainers) {
-                    if let data = json as? [String: AnyObject] {
-                        if let items = data["cards"] as? [[String: AnyObject]] {
-                            for item in items {
-                                if let card = Card(json: item) {
-                                    self.cards.append(card)
-                                }
-                            }
-                        }
-                    }
-                }
-                
-                DispatchQueue.main.async {
-                    self.collectionView.reloadData()
-                }
-            }
-        }
-        
-        task.resume()
+
+        // Uncomment the following line to preserve selection between presentations
+        // self.clearsSelectionOnViewWillAppear = false
+
+        // Register cell classes
+        self.collectionView!.register(UICollectionViewCell.self, forCellWithReuseIdentifier: reuseIdentifier)
+
+        // Do any additional setup after loading the view.
     }
+
     /*
     // MARK: - Navigation
 
@@ -68,31 +37,23 @@ class CardListCollectionViewController: UICollectionViewController {
 
     override func numberOfSections(in collectionView: UICollectionView) -> Int {
         // #warning Incomplete implementation, return the number of sections
-        return 1
+        return 0
     }
 
 
     override func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         // #warning Incomplete implementation, return the number of items
-        print (cards.count)
-        return cards.count
+        return 0
     }
-
 
     override func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        print("test call fct")
-        
-        let cardCell = collectionView.dequeueReusableCell(withReuseIdentifier: "CardCell", for: indexPath) as! CardCell
-        
-        
-        let card = cards[indexPath.row]
-        cardCell.nameLabel?.text = card.name
-        
-        print(cardCell)
-        // Configurez d'autres éléments de l'interface utilisateur de la cellule si nécessaire
-        
-        return cardCell
+        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: reuseIdentifier, for: indexPath)
+    
+        // Configure the cell
+    
+        return cell
     }
+
     // MARK: UICollectionViewDelegate
 
     /*
@@ -123,4 +84,5 @@ class CardListCollectionViewController: UICollectionViewController {
     
     }
     */
+
 }
