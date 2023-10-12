@@ -25,7 +25,7 @@ class RegisterViewController: UIViewController {
             let newUsers =  ["name": usernameField.text,"password": passwordField.text]
             defaults.set(newUsers, forKey: "allUsers")
 
-            if let vc = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(identifier: "wiki") as? WikiViewController{
+            if let vc = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(identifier: "wiki") as? RegisterViewController{
                 self.navigationController?.pushViewController(vc, animated: true)
             }
         }

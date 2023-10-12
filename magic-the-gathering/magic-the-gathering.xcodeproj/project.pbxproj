@@ -8,7 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		079521572AD6ACF6008141A7 /* RegisterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 079521562AD6ACF6008141A7 /* RegisterViewController.swift */; };
-		17FE99C72AD71096009B3A2D /* WikiViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17FE99C62AD71096009B3A2D /* WikiViewController.swift */; };
+		17FE99C72AD71096009B3A2D /* CollecWebViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17FE99C62AD71096009B3A2D /* CollecWebViewController.swift */; };
 		50B2C9302AD5987F00C8F36B /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50B2C92F2AD5987F00C8F36B /* AppDelegate.swift */; };
 		50B2C9322AD5987F00C8F36B /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50B2C9312AD5987F00C8F36B /* SceneDelegate.swift */; };
 		50B2C9342AD5987F00C8F36B /* LoginController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50B2C9332AD5987F00C8F36B /* LoginController.swift */; };
@@ -16,11 +16,14 @@
 		50B2C9392AD5988000C8F36B /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 50B2C9382AD5988000C8F36B /* Assets.xcassets */; };
 		50B2C93C2AD5988000C8F36B /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 50B2C93A2AD5988000C8F36B /* LaunchScreen.storyboard */; };
 		50B2C9582AD6AFA300C8F36B /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50B2C9572AD6AFA300C8F36B /* User.swift */; };
+		50B2C9622AD7E0F700C8F36B /* WikiWebViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50B2C9612AD7E0F700C8F36B /* WikiWebViewController.swift */; };
+		50B2C9642AD7E17C00C8F36B /* WikiTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50B2C9632AD7E17C00C8F36B /* WikiTableViewController.swift */; };
+		50B2C9662AD7EF4100C8F36B /* CollecTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50B2C9652AD7EF4100C8F36B /* CollecTableViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		079521562AD6ACF6008141A7 /* RegisterViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterViewController.swift; sourceTree = "<group>"; };
-		17FE99C62AD71096009B3A2D /* WikiViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WikiViewController.swift; sourceTree = "<group>"; };
+		17FE99C62AD71096009B3A2D /* CollecWebViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CollecWebViewController.swift; sourceTree = "<group>"; };
 		50B2C92C2AD5987F00C8F36B /* magic-the-gathering.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "magic-the-gathering.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		50B2C92F2AD5987F00C8F36B /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		50B2C9312AD5987F00C8F36B /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -30,6 +33,9 @@
 		50B2C93B2AD5988000C8F36B /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		50B2C93D2AD5988000C8F36B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		50B2C9572AD6AFA300C8F36B /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
+		50B2C9612AD7E0F700C8F36B /* WikiWebViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WikiWebViewController.swift; sourceTree = "<group>"; };
+		50B2C9632AD7E17C00C8F36B /* WikiTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WikiTableViewController.swift; sourceTree = "<group>"; };
+		50B2C9652AD7EF4100C8F36B /* CollecTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CollecTableViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -65,7 +71,10 @@
 			children = (
 				50B2C9332AD5987F00C8F36B /* LoginController.swift */,
 				079521562AD6ACF6008141A7 /* RegisterViewController.swift */,
-				17FE99C62AD71096009B3A2D /* WikiViewController.swift */,
+				17FE99C62AD71096009B3A2D /* CollecWebViewController.swift */,
+				50B2C9612AD7E0F700C8F36B /* WikiWebViewController.swift */,
+				50B2C9632AD7E17C00C8F36B /* WikiTableViewController.swift */,
+				50B2C9652AD7EF4100C8F36B /* CollecTableViewController.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -171,11 +180,14 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				50B2C9642AD7E17C00C8F36B /* WikiTableViewController.swift in Sources */,
 				50B2C9342AD5987F00C8F36B /* LoginController.swift in Sources */,
 				50B2C9302AD5987F00C8F36B /* AppDelegate.swift in Sources */,
 				50B2C9322AD5987F00C8F36B /* SceneDelegate.swift in Sources */,
 				079521572AD6ACF6008141A7 /* RegisterViewController.swift in Sources */,
-				17FE99C72AD71096009B3A2D /* WikiViewController.swift in Sources */,
+				50B2C9662AD7EF4100C8F36B /* CollecTableViewController.swift in Sources */,
+				50B2C9622AD7E0F700C8F36B /* WikiWebViewController.swift in Sources */,
+				17FE99C72AD71096009B3A2D /* CollecWebViewController.swift in Sources */,
 				50B2C9582AD6AFA300C8F36B /* User.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
