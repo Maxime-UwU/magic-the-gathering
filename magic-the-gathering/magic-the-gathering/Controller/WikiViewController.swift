@@ -13,7 +13,6 @@ class WikiViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
         searchBar.layer.cornerRadius = 10 // Ajustez le rayon en fonction de vos préférences
         searchBar.layer.masksToBounds = true
         

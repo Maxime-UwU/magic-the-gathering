@@ -8,35 +8,69 @@
 import UIKit
 
 class boosterViewController: UIViewController {
-
+    
+    var sets: [Set] = []
+    var booster: [Card] = []
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        
         let config = URLSessionConfiguration.default
-              let session = URLSession(configuration: config)
-              
-              let url = URL(string: "https://api.magicthegathering.io")!
-              
-              let task = session.dataTask(with: url) { (data, response, error) in
-                  if error != nil {
-                      print(error!.localizedDescription)
-                  } else {
-                      if let json = try? JSONSerialization.jsonObject(with: data!, options: .mutableContainers) {
-                          if let data = json as? [String: AnyObject] {
-                              print(data)
-                             // if let items = data["data"] as? [[String: AnyObject]] {
-                                  //for item in items {
-                                      //print(item["link"]!)
-                                      //self.browsers.append(item["link"]! as! String)
-                                   //   if let booster = Boosters(json: item) {
-                                   //     self.browsers.append(artist)
-                                //      }
-                                      
-                                  }
-                              }
-                          }
-                      }
-        // Do any additional setup after loading the view.
+        let session = URLSession(configuration: config)
+        let url = URL(string: "https://api.magicthegathering.io/v1/sets")!
+        
+        let dataTask = session.dataTask(with: url) { (data, response, error) in
+ 
+            if error != nil {
+                print(error!.localizedDescription)
+            } else {
+ 
+                if let json = try? JSONSerialization.jsonObject(with: data!, options: .mutableContainers) {
+                    if let data = json as? [String: AnyObject] {
+                        if let items = data["sets"] as? [[String: AnyObject]] {
+                            for item in items {
+                                if let set = Set(json: item) {
+                                    self.sets.append(set)
+                                }
+                            }
+                            print(self.sets)
+                        }
+                    }
+                }
+            }
+        }
+        
+        dataTask.resume()
+            
+            // Do any additional setup after loading the view.
+        
+    }
+    
+    func openBooster(setCode: String){
+        let config = URLSessionConfiguration.default
+        let session = URLSession(configuration: config)
+        let url = URL(string: "https://api.magicthegathering.io/v1/sets/\(setCode)/booster")!
+        
+        let dataTask = session.dataTask(with: url) { (data, response, error) in
+            
+            if error != nil {
+                print(error!.localizedDescription)
+            } else {
+                
+                if let json = try? JSONSerialization.jsonObject(with: data!, options: .mutableContainers) {
+                    if let data = json as? [String: AnyObject] {
+                        if let items = data["cards"] as? [[String: AnyObject]] {
+                            for item in items {
+                                if let card = Card(json: item) {
+                                    self.booster.append(card)
+                                }
+                            }
+                            print(self.booster)
+                        }
+                    }
+                }
+            }
+        }
+        dataTask.resume()
     }
     
     

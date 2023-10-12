@@ -7,11 +7,14 @@
 
 import Foundation
 
-struct Users: Codable {
+struct Users {
     var users: [User]
 }
 
-struct User: Codable {
+var currentUser = User(username: "", password: "", cardsCollection: [])
+
+struct User {
     var username: String
     var password: String
+    var cardsCollection: [Card]
 }
