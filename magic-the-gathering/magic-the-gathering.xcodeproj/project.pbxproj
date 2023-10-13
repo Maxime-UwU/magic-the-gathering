@@ -11,6 +11,7 @@
 		07B7AD082AD83CCB0004757E /* CardCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07B7AD072AD83CCB0004757E /* CardCollectionViewCell.swift */; };
 		07F7D5D72AD7367F00876FA1 /* Card.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07F7D5D62AD7367E00876FA1 /* Card.swift */; };
 		07F7D5DB2AD73D5600876FA1 /* TestCollectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07F7D5DA2AD73D5600876FA1 /* TestCollectionViewController.swift */; };
+		17896EB52AD8DDE400B55E6F /* boosterOpenViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17896EB42AD8DDE400B55E6F /* boosterOpenViewController.swift */; };
 		17FE99C72AD71096009B3A2D /* WikiViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17FE99C62AD71096009B3A2D /* WikiViewController.swift */; };
 		17FE99C92AD73546009B3A2D /* boosterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17FE99C82AD73546009B3A2D /* boosterViewController.swift */; };
 		17FE99CF2AD7DCFA009B3A2D /* Set.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17FE99CE2AD7DCFA009B3A2D /* Set.swift */; };
@@ -30,14 +31,12 @@
 		07B7AD072AD83CCB0004757E /* CardCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardCollectionViewCell.swift; sourceTree = "<group>"; };
 		07F7D5D62AD7367E00876FA1 /* Card.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Card.swift; sourceTree = "<group>"; };
 		07F7D5DA2AD73D5600876FA1 /* TestCollectionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestCollectionViewController.swift; sourceTree = "<group>"; };
+		17896EB42AD8DDE400B55E6F /* boosterOpenViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = boosterOpenViewController.swift; sourceTree = "<group>"; };
 		17FE99C62AD71096009B3A2D /* WikiViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WikiViewController.swift; sourceTree = "<group>"; };
-
 		17FE99C82AD73546009B3A2D /* boosterViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = boosterViewController.swift; sourceTree = "<group>"; };
 		17FE99CE2AD7DCFA009B3A2D /* Set.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Set.swift; sourceTree = "<group>"; };
 		17FE99D02AD7F0A4009B3A2D /* Booster.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Booster.swift; sourceTree = "<group>"; };
-
 		509AD5502AD85F77003D76CB /* WikiWebViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WikiWebViewController.swift; sourceTree = "<group>"; };
-
 		50B2C92C2AD5987F00C8F36B /* magic-the-gathering.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "magic-the-gathering.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		50B2C92F2AD5987F00C8F36B /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		50B2C9312AD5987F00C8F36B /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -90,6 +89,7 @@
 				07F7D5DA2AD73D5600876FA1 /* TestCollectionViewController.swift */,
 				07B7AD072AD83CCB0004757E /* CardCollectionViewCell.swift */,
 				509AD5502AD85F77003D76CB /* WikiWebViewController.swift */,
+				17896EB42AD8DDE400B55E6F /* boosterOpenViewController.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -203,15 +203,13 @@
 				079521572AD6ACF6008141A7 /* RegisterViewController.swift in Sources */,
 				17FE99C92AD73546009B3A2D /* boosterViewController.swift in Sources */,
 				17FE99C72AD71096009B3A2D /* WikiViewController.swift in Sources */,
-
 				17FE99CF2AD7DCFA009B3A2D /* Set.swift in Sources */,
+				17896EB52AD8DDE400B55E6F /* boosterOpenViewController.swift in Sources */,
 				50B2C9582AD6AFA300C8F36B /* User.swift in Sources */,
 				17FE99D12AD7F0A4009B3A2D /* Booster.swift in Sources */,
-
 				07B7AD082AD83CCB0004757E /* CardCollectionViewCell.swift in Sources */,
 				50B2C9582AD6AFA300C8F36B /* User.swift in Sources */,
 				509AD5512AD85F77003D76CB /* WikiWebViewController.swift in Sources */,
-
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

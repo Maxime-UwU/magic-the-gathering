@@ -31,12 +31,9 @@ class LoginController: UIViewController {
                     currentUser.username = user["name"]!
                     currentUser.password = user["password"]!
                     if let tabBarController = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(identifier: "tabBar") as? UITabBarController {
-                        let wikiVC = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(identifier: "wiki") as! WikiViewController
-                        tabBarController.viewControllers = [wikiVC]
-                        
                         self.navigationController?.pushViewController(tabBarController, animated: true)
                         self.navigationController?.navigationBar.tintColor = UIColor(red: 242/255.0, green: 190/255.0, blue: 42/255.0, alpha: 1)
-                        openBooster(setCode: "10E")
+                       // openBooster(setCode: "10E")
                     }
                 }
             }
@@ -57,13 +54,11 @@ class LoginController: UIViewController {
         defaults.set(array, forKey: "SavedArray")
         
         let test = defaults.object(forKey:"SavedArray") as? [String] ?? [String]()
-        print(test)
         
         let users =  [["name": "toto","password": "toto"],["name": "root","password": "root"]]
         defaults.set(users, forKey: "users")
         
         let value = defaults.object(forKey:"users") as? [[String: String]] ?? [[String: String]]()
-        print(value)
         allUsers = value
     }
     

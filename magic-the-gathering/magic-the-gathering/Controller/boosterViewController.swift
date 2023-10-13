@@ -7,12 +7,18 @@
 
 import UIKit
 
-class boosterViewController: UIViewController {
+class boosterViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
+
+    @IBOutlet weak var tableView: UITableView!
     
     var sets: [Set] = []
     var booster: [Card] = []
+    
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        tableView.dataSource = self
+        tableView.delegate = self
         
         let config = URLSessionConfiguration.default
         let session = URLSession(configuration: config)
@@ -32,9 +38,11 @@ class boosterViewController: UIViewController {
                                     self.sets.append(set)
                                 }
                             }
-                            print(self.sets)
                         }
                     }
+                }
+                DispatchQueue.main.async {
+                    self.tableView.reloadData()
                 }
             }
         }
@@ -64,7 +72,6 @@ class boosterViewController: UIViewController {
                                     self.booster.append(card)
                                 }
                             }
-                            print(self.booster)
                         }
                     }
                 }
@@ -73,7 +80,34 @@ class boosterViewController: UIViewController {
         dataTask.resume()
     }
     
+    func numberOfSections(in tableView: UITableView) -> Int {
+        // #warning Incomplete implementation, return the number of sections
+        return 1
+    }
+
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        // #warning Incomplete implementation, return the number of rows
+        return self.sets.count
+    }
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let cell = tableView.dequeueReusableCell(withIdentifier: "tableCell", for: indexPath)
+       // print (cell)
+        cell.textLabel?.text = self.sets[indexPath.row].name
+        
+        return cell
+    }
     
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        if let vc = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(identifier: "boosterView") as? boosterOpenViewController{
+           print("test did select")
+            vc.code = self.sets[indexPath.row].code
+            
+            vc.modalPresentationStyle = .fullScreen
+            self.present(vc, animated: true, completion: nil)
+        }
+    }
+    
+
 
     /*
     // MARK: - Navigation
