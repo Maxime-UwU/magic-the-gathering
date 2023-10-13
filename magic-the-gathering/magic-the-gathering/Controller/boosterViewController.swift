@@ -12,7 +12,6 @@ class boosterViewController: UIViewController, UITableViewDelegate, UITableViewD
     @IBOutlet weak var tableView: UITableView!
     
     var sets: [Set] = []
-    var booster: [Card] = []
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -52,33 +51,7 @@ class boosterViewController: UIViewController, UITableViewDelegate, UITableViewD
             // Do any additional setup after loading the view.
         
     }
-    
-    func openBooster(setCode: String){
-        let config = URLSessionConfiguration.default
-        let session = URLSession(configuration: config)
-        let url = URL(string: "https://api.magicthegathering.io/v1/sets/\(setCode)/booster")!
-        
-        let dataTask = session.dataTask(with: url) { (data, response, error) in
-            
-            if error != nil {
-                print(error!.localizedDescription)
-            } else {
-                
-                if let json = try? JSONSerialization.jsonObject(with: data!, options: .mutableContainers) {
-                    if let data = json as? [String: AnyObject] {
-                        if let items = data["cards"] as? [[String: AnyObject]] {
-                            for item in items {
-                                if let card = Card(json: item) {
-                                    self.booster.append(card)
-                                }
-                            }
-                        }
-                    }
-                }
-            }
-        }
-        dataTask.resume()
-    }
+
     
     func numberOfSections(in tableView: UITableView) -> Int {
         // #warning Incomplete implementation, return the number of sections
@@ -99,7 +72,6 @@ class boosterViewController: UIViewController, UITableViewDelegate, UITableViewD
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         if let vc = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(identifier: "boosterView") as? boosterOpenViewController{
-           print("test did select")
             vc.code = self.sets[indexPath.row].code
             
             vc.modalPresentationStyle = .fullScreen
