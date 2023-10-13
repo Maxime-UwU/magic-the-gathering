@@ -9,6 +9,8 @@ import UIKit
 
 class boosterOpenViewController: UIViewController,UITableViewDelegate, UITableViewDataSource {
 
+    @IBAction func backBtn(_ sender: Any) {
+    }
     var booster: [Card] = []
     @IBOutlet weak var newCardTab: UITableView!
     var code: String = ""
@@ -66,6 +68,7 @@ class boosterOpenViewController: UIViewController,UITableViewDelegate, UITableVi
         let cell = tableView.dequeueReusableCell(withIdentifier: "newCardCell", for: indexPath)
        // print (cell)
         cell.textLabel?.text = self.booster[indexPath.row].name
+      //  cell.imageView?.image = self.booster[indexPath.row].urlPage
         
         return cell
     }
