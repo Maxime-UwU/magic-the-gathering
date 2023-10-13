@@ -36,7 +36,7 @@ class WikiWebViewController: UIViewController, WKNavigationDelegate {
     @IBAction func actiontap(_ sender: Any) {
         self.reloadWebView(text: self.textField.text!)
     }
-    @IBAction func closetap(_ sender: Any) {
+    @IBAction func closetap(_ sender: UIButton) {
         self.dismiss(animated: true, completion: nil)
     }
 
