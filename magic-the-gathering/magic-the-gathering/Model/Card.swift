@@ -10,6 +10,7 @@ import Foundation
 struct Card {
     let name: String
     let urlPage: String
+    let imageUrl: String
     let multiverseId : String
 }
 
@@ -23,6 +24,7 @@ let url = "https://gatherer.wizards.com/Pages/Card/Details.aspx?multiverseid="
 extension Card {
     init?(json: [String: AnyObject]) {
         guard let name = json["name"] as? String,
+              let imageUrl = json["imageUrl"] as? String,
               let cardId = json["multiverseid"] as? String
 
                 
@@ -32,6 +34,7 @@ extension Card {
         self.name = name
         self.multiverseId = cardId
         self.urlPage = url + cardId
+        self.imageUrl = imageUrl
     }
 }
 
